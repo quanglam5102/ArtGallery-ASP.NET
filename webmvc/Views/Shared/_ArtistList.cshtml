@@ -1,0 +1,16 @@
+﻿@model List<webmvc.Models.Artist>
+
+@foreach (var artist in Model)
+{
+    <tr>
+        <td>@artist.ArtistId</td>
+        <td>@artist.Name</td>
+        <td>@artist.BirthYear</td>
+        <td>@artist.Nationality</td>
+        <td>@artist.Biography</td>
+        <td>
+            @Html.ActionLink("Artworks", "Details", "Art", new { artistId = artist.ArtistId }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Edit", "Edit", "Artist", new { artistId = artist.ArtistId }, new { @class = "btn btn-light" })
+        </td>
+    </tr>
+}

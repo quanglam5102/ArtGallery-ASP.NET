@@ -1,0 +1,42 @@
+﻿@model ExhibitionSearchViewModel
+
+<h2>Exhibition List</h2>
+
+@Html.Partial("~/Views/Shared/_SearchBar.cshtml", new
+    {
+        SearchLabel = "Search by Name",
+        SearchPlaceholder = "Search by Name",
+        SearchTerm = Model.SearchTerm,
+        SortOrder = Model.SortOrder,
+        SortOrderOptions = Model.SortOrderOptions,
+        SearchActionUrl = Url.Action("GetExhibitions", "Exhibition")
+    })
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody id="artworkTableBody">
+        @foreach (var exhibition in Model.Exhibitions)
+        {
+            <tr>
+                <td>@exhibition.Id</td>
+                <td>@exhibition.Name</td>
+                <td>@exhibition.Description</td>
+                <td>@exhibition.Status</td>
+                <td>@exhibition.StartDate</td>
+                <td>@exhibition.EndDate</td>
+                <td>@exhibition.Location</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

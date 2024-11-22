@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Art Gallery Home";
+}
+
+<div class="container">
+    <h1>Welcome to the Art Gallery</h1>
+    @if (ViewData["Role"]?.ToString() == "Admin")
+    {
+        <a href="/Admin">Admin Dashboard</a>
+    }
+
+
+    <p>
+        Explore our diverse collection of artworks, meet talented artists, and enjoy our latest exhibitions.
+    </p>
+
+    <div class="gallery-overview">
+        <h2>Featured Artworks</h2>
+        <p>
+            Discover some of the most popular pieces in our gallery. From contemporary art to classic masterpieces, there's something for everyone.
+        </p>
+    </div>
+
+    <div class="artist-highlight">
+        <h2>Meet the Artists</h2>
+        <p>
+            Get to know the creators behind the art. Read their stories, view their portfolios, and learn about their inspirations.
+        </p>
+    </div>
+
+    <div class="exhibition-preview">
+        <h2>Upcoming Exhibitions</h2>
+        <p>
+            Stay updated on our latest exhibitions. Mark your calendar and don't miss the chance to witness amazing art events.
+        </p>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    p {
+        text-align: justify;
+        line-height: 1.6;
+    }
+
+    .gallery-overview, .artist-highlight, .exhibition-preview {
+        margin-bottom: 40px;
+    }
+</style>

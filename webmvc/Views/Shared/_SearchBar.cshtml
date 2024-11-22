@@ -1,0 +1,44 @@
+﻿@model dynamic
+
+<div class="form-group">
+    <label for="searchTerm">@Model.SearchLabel:</label>
+    <input type="text" id="searchTerm" class="form-control" placeholder="@Model.SearchPlaceholder" value="@Model.SearchTerm" />
+</div>
+
+<!-- Sorting Dropdown -->
+<div class="form-group">
+    <label for="sortOrder">Sort by:</label>
+    @Html.DropDownList("SortOrder", new SelectList(Model.SortOrderOptions, "Value", "Text", Model.SortOrder), "Select Sort Order", new { @class = "form-control", id = "sortOrder" })
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Trigger an Ajax call when the user updates the search term
+        $('#searchTerm').on('input', function () {
+            updateSearchResults();
+        });
+
+        // Trigger an Ajax call when the user changes the sort order
+        $('#sortOrder').on('change', function () {
+            updateSearchResults();
+        });
+
+        function updateSearchResults() {
+            var searchTerm = $('#searchTerm').val();
+            var sortOrder = $('#sortOrder').val();
+
+            $.ajax({
+                url: '@Model.SearchActionUrl',
+                data: { searchTerm: searchTerm, sortOrder: sortOrder },
+                type: 'GET',
+                success: function (data) {
+                    $('#artworkTableBody').html(data);  // Update the table body with the new data
+                },
+                error: function () {
+                    alert('Error fetching results.');
+                }
+            });
+        }
+    });
+</script>

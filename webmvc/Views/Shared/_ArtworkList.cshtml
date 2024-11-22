@@ -1,0 +1,15 @@
+﻿@model List<webmvc.Models.Art>
+
+@foreach (var art in Model)
+{
+    <tr>
+        <td>@art.ArtId</td>
+        <td>@art.Title</td>
+        <td>@art.YearCreated</td>
+        <td>@art.Medium</td>
+        <td>@art.Price</td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = art.ArtId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}

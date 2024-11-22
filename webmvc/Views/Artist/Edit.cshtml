@@ -1,0 +1,36 @@
+﻿@model webmvc.Models.Artist
+
+<h2>Edit Artist</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="ArtistId" /> <!-- Must pass in ArtistId -->
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthYear" class="control-label"></label>
+        <input asp-for="BirthYear" class="form-control" />
+        <span asp-validation-for="BirthYear" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Nationality" class="control-label"></label>
+        <input asp-for="Nationality" class="form-control" />
+        <span asp-validation-for="Nationality" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Biography" class="control-label"></label>
+        <textarea asp-for="Biography" class="form-control"></textarea>
+        <span asp-validation-for="Biography" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

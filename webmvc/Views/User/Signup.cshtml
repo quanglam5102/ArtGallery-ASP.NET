@@ -1,0 +1,108 @@
+﻿@model webmvc.Models.AuthSignupModel
+
+<style>
+    .center-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%; /* Full height of the viewport */
+    }
+
+    .form-container {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        background: white;
+    }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+    .error-messages {
+        color: red;
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    .form-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<div class="center-wrapper">
+    <div class="form-container">
+        <h1>Signup</h1>
+        @using (Html.BeginForm("Signup", "User", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="Username">Username</label>
+                @Html.TextBoxFor(m => m.Username, new { @id = "Username", placeholder = "Enter your username" })
+                <div class="error-messages">
+                    @Html.ValidationMessageFor(m => m.Username)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                @Html.TextBoxFor(m => m.Email, new { @id = "Email", placeholder = "Enter your email" })
+                <div class="error-messages">
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Password">Password</label>
+                @Html.PasswordFor(m => m.Password, new { @id = "Password", placeholder = "Enter your password" })
+                <div class="error-messages">
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Role">Role</label>
+                @Html.DropDownListFor(m => m.Role, new SelectList(new[] { "User", "Admin" }), "Select Role", new { @id = "Role" })
+            </div>
+
+            <button type="submit">Signup</button>
+        }
+    </div>
+</div>

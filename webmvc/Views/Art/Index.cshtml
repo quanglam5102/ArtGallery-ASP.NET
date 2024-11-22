@@ -1,0 +1,53 @@
+﻿@model ArtworkSearchViewModel
+
+@{
+    ViewData["Title"] = "Artworks";
+}
+
+<h2>Artworks</h2>
+
+@Html.Partial("~/Views/Shared/_SearchBar.cshtml", new
+    {
+        SearchLabel = "Search by Title",
+        SearchPlaceholder = "Search by Title",
+        SearchTerm = Model.SearchTerm,
+        SortOrder = Model.SortOrder,
+        SortOrderOptions = Model.SortOrderOptions,
+        SearchActionUrl = Url.Action("GetArtworks", "Art")
+    })
+
+<!-- Table to display the list of artworks -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Year Created</th>
+            <th>Medium</th>
+            <th>Price</th>
+            @if (ViewData["Role"]?.ToString() == "Admin")
+            {
+                <th>Action</th>
+            }
+        </tr>
+    </thead>
+    <tbody id="artworkTableBody">
+        <!-- Artworks will be injected here by Ajax -->
+        @foreach (var art in Model.Artworks)
+        {
+            <tr>
+                <td>@art.ArtId</td>
+                <td>@art.Title</td>
+                <td>@art.YearCreated</td>
+                <td>@art.Medium</td>
+                <td>@art.Price</td>
+                @if (ViewData["Role"]?.ToString() == "Admin")
+                {
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = art.ArtId }, new { @class = "btn btn-danger" })
+                </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

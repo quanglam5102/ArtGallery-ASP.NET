@@ -1,0 +1,14 @@
+﻿@model List<webmvc.Models.Exhibition>
+
+@foreach (var exhibition in Model)
+{
+    <tr>
+        <td>@exhibition.Id</td>
+        <td>@exhibition.Name</td>
+        <td>@exhibition.Description</td>
+        <td>@exhibition.Status</td>
+        <td>@exhibition.StartDate</td>
+        <td>@exhibition.EndDate</td>
+        <td>@exhibition.Location</td>
+    </tr>
+}

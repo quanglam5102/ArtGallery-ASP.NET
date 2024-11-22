@@ -1,0 +1,51 @@
+﻿@model ArtistSearchViewModel
+
+<div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <h2>Artist List</h2>
+    @if (ViewData["Role"]?.ToString() == "Admin")
+    {
+        @Html.ActionLink("Add New Artist", "Add", "Artist", null, new { @class = "btn btn-primary", style = "align-self: flex-start;" })
+    }
+</div>
+
+@Html.Partial("~/Views/Shared/_SearchBar.cshtml", new
+    {
+        SearchLabel = "Search by Name",
+        SearchPlaceholder = "Search by Name",
+        SearchTerm = Model.SearchTerm,
+        SortOrder = Model.SortOrder,
+        SortOrderOptions = Model.SortOrderOptions,
+        SearchActionUrl = Url.Action("GetArtists", "Artist")
+    })
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Birth Date</th>
+            <th>Nationality</th>
+            <th>Biography</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="artworkTableBody">
+        @foreach (var artist in Model.Artists)
+        {
+            <tr>
+                <td>@artist.ArtistId</td>
+                <td>@artist.Name</td>
+                <td>@artist.BirthYear</td>
+                <td>@artist.Nationality</td>
+                <td>@artist.Biography</td>
+                <td>
+                    @Html.ActionLink("Artworks", "Details", "Art", new { artistId = artist.ArtistId }, new { @class = "btn btn-info" })
+                    @if (ViewData["Role"]?.ToString() == "Admin")
+                    {
+                        @Html.ActionLink("Edit", "Edit", "Artist", new { artistId = artist.ArtistId }, new { @class = "btn btn-light" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

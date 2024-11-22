@@ -1,0 +1,31 @@
+﻿@model IEnumerable<webmvc.Models.Art>
+
+<div style="width: 100%; display: flex; justify-content: space-between; margin-bottom: 10px">
+    <h2>Artworks</h2>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Year Created</th>
+            <th>Medium</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var art in Model)
+        {
+            <tr>
+                <td>@art.ArtId</td>
+                <td>@art.Title</td>
+                <td>@art.YearCreated</td>
+                <td>@art.Medium</td>
+                <td>@art.Price</td>
+            </tr>
+        }
+        @Html.ActionLink("Back to List", "Index")
+    </tbody>
+</table>
+
