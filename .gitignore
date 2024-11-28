@@ -1,0 +1,43 @@
+# Ignore build output directories
+webmvc/bin/
+webmvc/obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Ignore Visual Studio for Mac
+.vscode/
+
+# Ignore Visual Studio for
+.vs/
+
+# Ignore ASP.NET temporary files
+TemporaryASP.NETFiles/
+
+# Ignore web server logs
+# (if you are using IIS Express)
+iisexpress/
+
+# Ignore NuGet packages (if they are not restored by your build system)
+# Uncomment the next line to ignore the entire .nuget folder
+#.nuget/
+
+# Ignore the .github folder
+.github/
+
+# Ignore common dependency directories
+node_modules/
+bower_components/
+
+# Ignore publish artifacts
+publish/
+
+# Ignore user-specific configurations
+.idea/
+
+# Ignore Windows installer files
+Thumbs.db
+Desktop.ini
