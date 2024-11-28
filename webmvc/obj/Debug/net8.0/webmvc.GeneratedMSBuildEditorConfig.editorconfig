@@ -17,87 +17,87 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = webmvc
 build_property.RootNamespace = webmvc
-build_property.ProjectDir = C:\Users\quang\Downloads\CPAN369-Project\CPAN369-Project\CPAN369-Project\webmvc\
+build_property.ProjectDir = C:\Users\Lam Huynh\Downloads\ArtGallery-ASP.NET\webmvc\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\quang\Downloads\CPAN369-Project\CPAN369-Project\CPAN369-Project\webmvc
+build_property.MSBuildProjectDirectory = C:\Users\Lam Huynh\Downloads\ArtGallery-ASP.NET\webmvc
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Admin/Index.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Artist/Add.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Artist/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Artist/Edit.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Artist/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Artist/Index.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Artist/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aXN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Art/Details.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Art/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Art/Index.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Art/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Exhibition/Index.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Exhibition/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhoaWJpdGlvblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Home/Index.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Shared/Error.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Shared/_ArtistList.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Shared/_ArtistList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BcnRpc3RMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Shared/_ArtworkList.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Shared/_ArtworkList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BcnR3b3JrTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Shared/_ExhibitionList.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Shared/_ExhibitionList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FeGhpYml0aW9uTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Shared/_SearchBar.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Shared/_SearchBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWFyY2hCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/User/Signin.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/User/Signin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/User/Signup.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/User/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWdudXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/_ViewImports.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/_ViewStart.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/quang/Downloads/CPAN369-Project/CPAN369-Project/CPAN369-Project/webmvc/Views/Shared/_Layout.cshtml]
+[C:/Users/Lam Huynh/Downloads/ArtGallery-ASP.NET/webmvc/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-03613hhhk1

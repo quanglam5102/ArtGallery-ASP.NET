@@ -2,6 +2,9 @@
 webmvc/bin/
 webmvc/obj/
 
+#Ignore Environment file
+.env
+
 # User-specific files
 *.user
 *.userosscache

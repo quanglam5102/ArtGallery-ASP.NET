@@ -35,6 +35,9 @@ namespace webmvc.Controllers
         // This action will be used for Ajax calls
         public IActionResult GetArtworks(string searchTerm, string sortOrder)
         {
+            var role = HttpContext.Session.GetString("Role");
+            ViewData["Role"] = role;
+
             var artworks = _context.Arts.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchTerm))

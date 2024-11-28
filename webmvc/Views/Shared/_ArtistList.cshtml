@@ -10,7 +10,10 @@
         <td>@artist.Biography</td>
         <td>
             @Html.ActionLink("Artworks", "Details", "Art", new { artistId = artist.ArtistId }, new { @class = "btn btn-info" })
-            @Html.ActionLink("Edit", "Edit", "Artist", new { artistId = artist.ArtistId }, new { @class = "btn btn-light" })
+            @if (ViewData["Role"]?.ToString() == "Admin")
+            {
+                @Html.ActionLink("Edit", "Edit", "Artist", new { artistId = artist.ArtistId }, new { @class = "btn btn-light" })
+            }
         </td>
     </tr>
 }

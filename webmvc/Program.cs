@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using webmvc.Models;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Env.Load();
+var serverName = Environment.GetEnvironmentVariable("DB_SERVER_NAME") ?? "";
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -14,9 +18,11 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; // Ensures the session is created even if the user doesn't accept cookies
 });
 
+var connectionString = $"Server={serverName};Database=ArtGallery;Trusted_Connection=True;TrustServerCertificate=True";
+
 builder.Services.AddDbContext<ArtContext>(options =>
 {
-    options.UseSqlServer("Server=DESKTOP-JH5G7F3;Database=ArtGallery;Trusted_Connection=True;TrustServerCertificate=True");
+    options.UseSqlServer(connectionString);
 });
 
 var app = builder.Build();

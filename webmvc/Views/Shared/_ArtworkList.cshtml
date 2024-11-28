@@ -8,8 +8,11 @@
         <td>@art.YearCreated</td>
         <td>@art.Medium</td>
         <td>@art.Price</td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id = art.ArtId }, new { @class = "btn btn-danger" })
-        </td>
+        @if (ViewData["Role"]?.ToString() == "Admin") 
+        {
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = art.ArtId }, new { @class = "btn btn-danger" })
+            </td>
+        }
     </tr>
 }

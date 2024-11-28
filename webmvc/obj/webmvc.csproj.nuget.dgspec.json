@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\quang\\Downloads\\CPAN369-Project\\CPAN369-Project\\CPAN369-Project\\webmvc\\webmvc.csproj": {}
+    "C:\\Users\\Lam Huynh\\Downloads\\ArtGallery-ASP.NET\\webmvc\\webmvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\quang\\Downloads\\CPAN369-Project\\CPAN369-Project\\CPAN369-Project\\webmvc\\webmvc.csproj": {
+    "C:\\Users\\Lam Huynh\\Downloads\\ArtGallery-ASP.NET\\webmvc\\webmvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quang\\Downloads\\CPAN369-Project\\CPAN369-Project\\CPAN369-Project\\webmvc\\webmvc.csproj",
+        "projectUniqueName": "C:\\Users\\Lam Huynh\\Downloads\\ArtGallery-ASP.NET\\webmvc\\webmvc.csproj",
         "projectName": "webmvc",
-        "projectPath": "C:\\Users\\quang\\Downloads\\CPAN369-Project\\CPAN369-Project\\CPAN369-Project\\webmvc\\webmvc.csproj",
-        "packagesPath": "C:\\Users\\quang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quang\\Downloads\\CPAN369-Project\\CPAN369-Project\\CPAN369-Project\\webmvc\\obj\\",
+        "projectPath": "C:\\Users\\Lam Huynh\\Downloads\\ArtGallery-ASP.NET\\webmvc\\webmvc.csproj",
+        "packagesPath": "C:\\Users\\Lam Huynh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lam Huynh\\Downloads\\ArtGallery-ASP.NET\\webmvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lam Huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -92,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
