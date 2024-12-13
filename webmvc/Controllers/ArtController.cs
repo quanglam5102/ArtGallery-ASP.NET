@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using webmvc.Models;
 
 namespace webmvc.Controllers
@@ -30,6 +31,84 @@ namespace webmvc.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public IActionResult Add()
+        {
+            ViewBag.Artists = _context.Artists.ToList();
+            ViewBag.Exhibitions = _context.Exhibitions.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Add(Art art, IFormFile uploadImage)
+        {
+            if (ModelState.IsValid)
+            {
+                if (uploadImage != null && uploadImage.Length > 0)
+                {
+                    var fileName = Path.GetFileName(uploadImage.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        uploadImage.CopyTo(stream);
+                    }
+
+                    art.UploadImage = fileName;
+                }
+
+                _context.Arts.Add(art);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Artists = _context.Artists.ToList();
+            ViewBag.Exhibitions = _context.Exhibitions.ToList();
+            return View(art);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var art = _context.Arts.Include(a => a.Artist).Include(a => a.Exhibition).FirstOrDefault(a => a.ArtId == id);
+
+            if (art == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.Artists = _context.Artists.ToList();
+            ViewBag.Exhibitions = _context.Exhibitions.ToList();
+            return View(art);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Art art, IFormFile uploadImage)
+        {
+            if (ModelState.IsValid)
+            {
+                if (uploadImage != null && uploadImage.Length > 0)
+                {
+                    var fileName = Path.GetFileName(uploadImage.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        uploadImage.CopyTo(stream);
+                    }
+
+                    art.UploadImage = fileName;
+                }
+
+                _context.Arts.Update(art);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Artists = _context.Artists.ToList();
+            ViewBag.Exhibitions = _context.Exhibitions.ToList();
+            return View(art);
         }
 
         // This action will be used for Ajax calls
