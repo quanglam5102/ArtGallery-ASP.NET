@@ -18,12 +18,4 @@ namespace webmvc.Models
     }
 }
 
-//ALTER TABLE Arts
-//ADD UploadImage VARCHAR(50);
-//ALTER TABLE Arts
-//ADD ExhibitionId INT NULL;
-//ALTER TABLE Arts
-//ADD CONSTRAINT FK_Arts_Exhibition
-//FOREIGN KEY (ExhibitionId) REFERENCES Exhibitions(Id);
-
 
