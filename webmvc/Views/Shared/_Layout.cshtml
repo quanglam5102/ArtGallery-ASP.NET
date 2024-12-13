@@ -49,9 +49,16 @@
                         <li class="nav-item"><a class="nav-link" href="/Art">Artworks</a></li>
                         <li class="nav-item"><a class="nav-link" href="/Artist">Artists</a></li>
                         <li class="nav-item"><a class="nav-link" href="/Exhibition">Exhibitions</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/User/Signup">SignUp</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/User/Signin">SignIn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/User/Logout">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Art/FilterArts">Filter Arts</a></li>
+                        @if (Context.Session.GetString("UserId") != null)
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/User/Logout">Logout</a></li>
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link" href="/User/Signin">SignIn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/User/Signup">SignUp</a></li>
+                        }
                     </ul>
                 </div>
             </div>

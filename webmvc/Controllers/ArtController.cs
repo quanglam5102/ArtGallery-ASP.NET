@@ -91,5 +91,76 @@ namespace webmvc.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult View(int id)
+        {
+            var artwork = _context.Arts.FirstOrDefault(a => a.ArtId == id);
+            var role = HttpContext.Session.GetString("Role");
+            ViewData["Role"] = role;
+            if (artwork == null)
+            {
+                return NotFound();
+            }
+
+            return View(artwork);
+        }
+
+        [HttpPost]
+        public IActionResult UploadImage(int artId, IFormFile imageFile)
+        {
+            if (imageFile != null && imageFile.Length > 0)
+            {
+                // Generate a unique file name
+                var fileName = Path.GetFileName(imageFile.FileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+
+                // Save the file to the wwwroot/Images folder
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    imageFile.CopyTo(stream);
+                }
+
+                // Save the file name in the database
+                var art = _context.Arts.FirstOrDefault(a => a.ArtId == artId);
+                if (art != null)
+                {
+                    art.UploadImage = fileName;
+                    _context.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        // Main view with initial data
+        public IActionResult FilterArts()
+        {
+            ViewBag.Artists = new SelectList(_context.Artists, "ArtistId", "Name");
+            return View();
+        }
+
+        // Fetch Exhibitions by Artist
+        [HttpGet]
+        public JsonResult GetExhibitionsByArtist(int artistId)
+        {
+            var exhibitions = _context.Exhibitions
+                .Where(e => _context.Arts.Any(a => a.ArtistId == artistId && a.ExhibitionId == e.Id))
+                .Select(e => new { e.Id, e.Name })
+                .ToList();
+
+            return Json(exhibitions);
+        }
+
+        // Fetch Arts by Artist and Exhibition
+        [HttpGet]
+        public JsonResult GetArtsByArtistAndExhibition(int artistId, int exhibitionId)
+        {
+            var arts = _context.Arts
+                .Where(a => a.ArtistId == artistId && a.ExhibitionId == exhibitionId)
+                .Select(a => new { a.ArtId, a.Title })
+                .ToList();
+            return Json(arts);
+        }
+
+
     }
 }

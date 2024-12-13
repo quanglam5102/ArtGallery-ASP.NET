@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Filter Arts";
+}
+
+<h2>Filter Arts</h2>
+
+<div class="form-group">
+    <label for="ArtistId">Select Artist</label>
+    <select id="ArtistId" class="form-control">
+        <option value="">-- Select Artist --</option>
+        @foreach (var artist in ViewBag.Artists)
+        {
+            <option value="@artist.Value">@artist.Text</option>
+        }
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="ExhibitionId">Select Exhibition</label>
+    <select id="ExhibitionId" class="form-control" disabled>
+        <option value="">-- Select Exhibition --</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="ArtId">Select Art</label>
+    <select id="ArtId" class="form-control" disabled>
+        <option value="">-- Select Art --</option>
+    </select>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // When Artist changes
+            $("#ArtistId").change(function () {
+                var artistId = $(this).val();
+                $("#ExhibitionId").empty().append('<option value="">-- Select Exhibition --</option>').prop('disabled', true);
+                $("#ArtId").empty().append('<option value="">-- Select Art --</option>').prop('disabled', true);
+
+                if (artistId) {
+                    $.getJSON('/Art/GetExhibitionsByArtist', { artistId: artistId }, function (data) {
+                        $.each(data, function (index, item) {
+                            $("#ExhibitionId").append('<option value="' + item.id + '">' + item.name + '</option>');
+                        });
+                        $("#ExhibitionId").prop('disabled', false);
+                    });
+                }
+            });
+
+            // When Exhibition changes
+            $("#ExhibitionId").change(function () {
+                var artistId = $("#ArtistId").val();
+                var exhibitionId = $(this).val();
+                $("#ArtId").empty().append('<option value="">-- Select Art --</option>').prop('disabled', true);
+
+                if (artistId && exhibitionId) {
+                    $.getJSON('/Art/GetArtsByArtistAndExhibition', { artistId: artistId, exhibitionId: exhibitionId }, function (data) {
+                        $.each(data, function (index, item) {
+                            $("#ArtId").append('<option value="' + item.artId + '">' + item.title + '</option>');
+                        });
+                        $("#ArtId").prop('disabled', false);
+                    });
+                }
+            });
+            $("#ArtId").change(function () {
+                var artId = $(this).val();
+                if (artId) {
+                    // Redirect to the Art/View page with the selected artId
+                    window.location.href = '/Art/View/' + artId;
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,82 @@
+﻿@model webmvc.Models.Art
+
+<div>
+    <h2>Artwork Details</h2>
+    <table class="table">
+        <tr>
+            <th>ID:</th>
+            <td>@Model.ArtId</td>
+        </tr>
+        <tr>
+            <th>Title:</th>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <th>Year Created:</th>
+            <td>@Model.YearCreated</td>
+        </tr>
+        <tr>
+            <th>Medium:</th>
+            <td>@Model.Medium</td>
+        </tr>
+        <tr>
+            <th>Price:</th>
+            <td>@Model.Price</td>
+        </tr>
+    </table>
+
+    @if (!string.IsNullOrEmpty(Model.UploadImage))
+    {
+        <h3>Uploaded Image:</h3>
+        <img src="~/Images/@Model.UploadImage" alt="Artwork Image" style="max-width: 100%; height: auto; margin-top: 10px;" />
+    }
+    @if (ViewData["Role"]?.ToString() == "Admin")
+    {
+        <div style="display: flex; align-items: center; gap: 10px; justify-content: space-between">
+            @using (Html.BeginForm("UploadImage", "Art", FormMethod.Post, new { enctype = "multipart/form-data", id = "imageUploadForm" }))
+            {
+                <button type="button" id="uploadButton" class="btn btn-primary">Upload Image</button>
+                <input type="file" id="imageFile" name="imageFile" style="display: none" accept="image/*" />
+                <input type="hidden" id="artId" name="artId" value="@Model.ArtId" />
+            }
+            @Html.ActionLink("Delete", "Delete", new { artId = @Model.ArtId }, new { @class = "btn btn-danger" })
+        </div>
+
+    }
+    
+    <a asp-action="Index" class="btn btn-secondary" style="margin-top: 10px;">Back to List</a>
+</div>
+
+<script type="text/javascript">
+    // When the upload button is clicked, trigger the file input click
+    document.getElementById("uploadButton").onclick = function () {
+        document.getElementById("imageFile").click();
+    };
+
+    // When a file is selected, automatically upload it
+    document.getElementById("imageFile").onchange = function (e) {
+        var formData = new FormData();
+        var fileInput = document.getElementById("imageFile");
+
+        // Ensure a file was selected
+        if (fileInput.files.length > 0) {
+            var file = fileInput.files[0];
+            formData.append("imageFile", file);
+            formData.append("artId", document.getElementById("artId").value); // Pass the ArtId
+
+            // Use AJAX to upload the file
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "@Url.Action("UploadImage", "Art")", true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    alert("Image uploaded successfully.");
+                    // Optionally, display the uploaded image or update the UI
+                } else {
+                    alert("Error uploading image.");
+                }
+            };
+
+            xhr.send(formData);
+        }
+    };
+</script>

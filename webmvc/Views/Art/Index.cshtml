@@ -25,10 +25,7 @@
             <th>Year Created</th>
             <th>Medium</th>
             <th>Price</th>
-            @if (ViewData["Role"]?.ToString() == "Admin")
-            {
-                <th>Action</th>
-            }
+            <th>Action</th>
         </tr>
     </thead>
     <tbody id="artworkTableBody">
@@ -41,12 +38,7 @@
                 <td>@art.YearCreated</td>
                 <td>@art.Medium</td>
                 <td>@art.Price</td>
-                @if (ViewData["Role"]?.ToString() == "Admin")
-                {
-                    <td>
-                        @Html.ActionLink("Delete", "Delete", new { id = art.ArtId }, new { @class = "btn btn-danger" })
-                    </td>
-                }
+                <td>@Html.ActionLink("View", "View", new { id = art.ArtId }, new { @class = "btn btn-primary" })</td>
             </tr>
         }
     </tbody>
