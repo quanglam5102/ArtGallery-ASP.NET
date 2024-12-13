@@ -28,7 +28,7 @@ namespace webmvc.Controllers
                 var existingUser = _context.Users.FirstOrDefault(u => u.Email == model.Email);
                 if (existingUser != null)
                 {
-                    ModelState.AddModelError("", "Email already exists.");
+                    ModelState.AddModelError(nameof(model.Email), "Email already exists.");
                     return View(model);
                 }
 
