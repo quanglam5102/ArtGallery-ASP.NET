@@ -39,7 +39,16 @@
                 <input type="file" id="imageFile" name="imageFile" style="display: none" accept="image/*" />
                 <input type="hidden" id="artId" name="artId" value="@Model.ArtId" />
             }
-            @Html.ActionLink("Delete", "Delete", new { artId = @Model.ArtId }, new { @class = "btn btn-danger" })
+            @Html.ActionLink(
+                         "Delete",
+                         "Delete",
+                         new { artId = @Model.ArtId },
+                         new
+                         {
+                             @class = "btn btn-danger",
+                             onclick = "return confirm('Are you sure you want to delete this artwork?');"
+                         }
+                     )
         </div>
 
     }

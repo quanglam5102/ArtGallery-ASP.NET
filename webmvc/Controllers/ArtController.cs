@@ -86,6 +86,15 @@ namespace webmvc.Controllers
                 return NotFound();
             }
 
+            if (!string.IsNullOrEmpty(art.UploadImage))
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", art.UploadImage);
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+            }
+
             _context.Arts.Remove(art);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
